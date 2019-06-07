@@ -1,5 +1,13 @@
 # 说明
 
+## shell使用
+
+```bash
+./check_result.sh main.exe
+```
+
+用于对比多个测试用例的正确性
+
 ## 输入建议
 
 将测试用例作命令行运行的参数传递，如生成的main.exe
@@ -201,7 +209,8 @@ init x x x x p q r r x x p p q r r x p q r
 ## 贡献
 
 - 0 实验指导书
-- 1、2 万志文
-- 3 李逢君
+- 1、2 [万志文](https://github.com/JXhacker)
+- 3 [李逢君](https://github.com/543877815)
 - 4 黄晔熙
+- shell [向尉](https://github.com/SwordAndTea)
 
