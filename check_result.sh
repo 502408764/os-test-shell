@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 result_file_name="result.txt"
 
 if [[ ! -f "$result_file_name" ]]; then
@@ -13,7 +11,7 @@ if [[ ! $# -eq 1 ]]; then
     echo "parameter count mismatch, use this by $0 <executable file name>"
     exit
 elif [[ ! -f "$1" ]]; then
-    echo "no such file or directory $1"
+    echo "no executable file $1 exist in working directory"
     exit
 fi
 
