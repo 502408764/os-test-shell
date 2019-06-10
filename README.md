@@ -181,6 +181,7 @@ cr I 2
 to
 req R3 3
 req R3 2
+to
 rel R3 1
 to
 ```
@@ -188,7 +189,7 @@ to
 #### 输出
 
 ```
-init A A A B B B B C A D D D E E F F F B C A G D A A H H I H C C A 
+init A A A B B B B C A D D D E E F F F B C A G D A A H H I H C A A C
 ```
 
 ### 4.txt
