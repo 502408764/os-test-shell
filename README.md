@@ -1,5 +1,15 @@
 # 说明
 
+## 可视化网站
+
+### 地址
+
+[https://502408764.github.io/#/](https://502408764.github.io/#/)
+
+### 项目地址
+
+[https://github.com/543877815/os-visualization](https://github.com/543877815/os-visualization)
+
 ## shell使用
 
 ```bash
@@ -206,10 +216,43 @@ to
 init x x x x p q r r x x p p q r r x p q r
 ```
 
+### 5.txt
+
+#### 输入
+
+```
+cr a 1
+cr b 1
+cr c 1
+cr d 1
+to
+cr f 1
+req R1 1
+to
+to
+to
+cr e 2
+req R1 1
+to
+de b
+req R1 1
+to
+to
+to
+to
+to
+```
+
+#### 输出
+
+```
+init a a a a b b b c d a e f b e c d a c d a
+```
+
 ## 贡献
 
 - 0 实验指导书
-- 1、2 [万志文](https://github.com/JXhacker)
+- 1、2 、5[万志文](https://github.com/JXhacker)
 - 3 [李逢君](https://github.com/543877815)
 - 4 黄晔熙
 - shell [向尉](https://github.com/SwordAndTea)
