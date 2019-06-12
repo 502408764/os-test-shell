@@ -7,7 +7,7 @@ if [[ ! -f "$result_file_name" ]]; then
     exit
 fi
 #please pass your executable file as the first parameter and the max index of file count as the second parameter
-if [[ ! $# -eq 1 ]]; then
+if [[ $# -lt 1 ]]; then
     echo "parameter count mismatch, use this by $0 <executable file name>"
     exit
 elif [[ ! -f "$1" ]]; then
@@ -17,32 +17,32 @@ fi
 
 suffix=".txt"
 executable=$1
+py_version=$3
+
+execute() {
+    #获取可执行文件后缀名
+    executable_suffix=`echo ${executable##*.}`
+    if [[ ${executable_suffix} = "py" ]]; then
+        echo `python${py_version} ./${executable} $1 | tr -d '\r'`
+    elif [[ ${executable_suffix} = "jar" ]]; then
+        echo `java -jar ./${executable} $1 | tr -d '\r'`
+    else
+        echo `./${executable} $1 | tr -d '\r'`
+    fi
+}
 
 i=0
 while read line || [[ -n ${line} ]]
 do
-    your_result=`./${executable} ${i}${suffix}`
-    your_result_array=(${your_result})
-    actual_result_array=(${line})
-    your_count=${#your_result_array[@]}
-    actual_count=${#actual_result_array[@]}
-    is_correct=1
-    if [[ ${your_count} -eq ${actual_count} ]]; then
-        for (( j = 0; j < ${#your_result_array}; ++j )); do
-            if [[ ${your_result_array[j]} != ${actual_result_array[j]} ]]; then
-                is_correct=0
-                break
-            fi
-        done
-        if [[ ${is_correct} -eq 1 ]]; then
+    if [[ ${line} != "" ]]; then
+        line=`echo ${line} | tr -d '\r'`
+        your_result=`execute ${i}${suffix}`
+        if [[ "${your_result}" = "${line}" ]]; then
             echo "test ${i}${suffix} correct"
         else
             echo "test ${i}${suffix} wrong answer"
-        fi
-    else
-        echo "test ${i}${suffix} wrong answer"
     fi
     i=$(( $i + 1 ))
+    fi
+
 done < ${result_file_name}
-
-

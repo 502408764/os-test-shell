@@ -12,8 +12,15 @@
 
 ## shell使用
 
-用于对比多个测试用例的正确性，目前存在bug，仍在测试修改
+用于对比多个测试用例的正确性
 
+如果可执行文件为.py文件，需要使用方式如下
+```bash
+./check_result.sh xxx.py [-v 3]
+```
+-v 参数表示使用的python版本，如果使用python3的话请传该参数，不传递该参数的话默认则使用系统指定的python版本
+
+其他的直接传递可执行文件名即可，例如
 ```bash
 ./check_result.sh main.exe
 ```
@@ -264,4 +271,3 @@ init a a a a b b b c d a e f b e c d a c d a
 - 3 [李逢君](https://github.com/543877815)
 - 4 黄晔熙
 - shell [向尉](https://github.com/SwordAndTea)
-
