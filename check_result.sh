@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 result_file_name="result.txt"
 
 if [[ ! -f "$result_file_name" ]]; then
@@ -9,8 +7,11 @@ if [[ ! -f "$result_file_name" ]]; then
     exit
 fi
 #please pass your executable file as the first parameter and the max index of file count as the second parameter
-if [[ $# -eq 2 ]]; then
+if [[ ! $# -eq 1 ]]; then
     echo "parameter count mismatch, use this by $0 <executable file name>"
+    exit
+elif [[ ! -f "$1" ]]; then
+    echo "no executable file $1 exist in working directory"
     exit
 fi
 
