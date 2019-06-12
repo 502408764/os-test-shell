@@ -1,5 +1,35 @@
 # 说明
 
+## 可视化网站
+
+### 地址
+
+[https://502408764.github.io/#/](https://502408764.github.io/#/)
+
+### 项目地址
+
+[https://github.com/543877815/os-visualization](https://github.com/543877815/os-visualization)
+
+## shell使用
+
+如果可执行文件为.py文件，需要使用方式如下
+```bash
+./check_result.sh xxx.py [-v 3]
+```
+-v 参数表示使用的python版本，如果使用python3的话请传该参数，不传递该参数的话默认则使用系统指定的python版本
+
+其他的直接传递可执行文件名即可，例如
+```bash
+./check_result.sh main.exe
+```
+
+## 提问issue的正确方式
+
+1. 给出输入序列
+2. 给出期望输出和实际输出序列
+3. 指明哪一行输出有问题
+4. 简单地分析一下？
+
 ## 输入建议
 
 将测试用例作命令行运行的参数传递，如生成的main.exe
@@ -156,6 +186,7 @@ cr I 2
 to
 req R3 3
 req R3 2
+to
 rel R3 1
 to
 ```
@@ -163,7 +194,7 @@ to
 #### 输出
 
 ```
-init A A A B B B B C A D D D E E F F F B C A G D A A H H I H C C A 
+init A A A B B B B C A D D D E E F F F B C A G D A A H H I H C A A C
 ```
 
 ### 4.txt
@@ -198,10 +229,43 @@ to
 init x x x x p q r r x x p p q r r x p q r
 ```
 
+### 5.txt
+
+#### 输入
+
+```
+cr a 1
+cr b 1
+cr c 1
+cr d 1
+to
+cr f 1
+req R1 1
+to
+to
+to
+cr e 2
+req R1 1
+to
+de b
+req R1 1
+to
+to
+to
+to
+to
+```
+
+#### 输出
+
+```
+init a a a a b b b c d a e f b e c d a c d a
+```
+
 ## 贡献
 
 - 0 实验指导书
-- 1、2 万志文
-- 3 李逢君
+- 1、2 、5[万志文](https://github.com/JXhacker)
+- 3 [李逢君](https://github.com/543877815)
 - 4 黄晔熙
-
+- shell [向尉](https://github.com/SwordAndTea)
