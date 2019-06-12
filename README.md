@@ -12,6 +12,8 @@
 
 ## shell使用
 
+用于对比多个测试用例的正确性
+
 如果可执行文件为.py文件，需要使用方式如下
 ```bash
 ./check_result.sh xxx.py [-v 3]
