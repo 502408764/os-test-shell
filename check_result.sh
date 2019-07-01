@@ -7,7 +7,7 @@ if [[ ! -f "$result_file_name" ]]; then
     exit
 fi
 #please pass your executable file as the first parameter and the max index of file count as the second parameter
-if [[ ! $# -eq 1 ]]; then
+if [[ $# -lt 1 ]]; then
     echo "parameter count mismatch, use this by $0 <executable file name>"
     exit
 elif [[ ! -f "$1" ]]; then
@@ -17,6 +17,19 @@ fi
 
 suffix=".txt"
 executable=$1
+py_version=$3
+
+execute() {
+    #获取可执行文件后缀名
+    executable_suffix=`echo ${executable##*.}`
+    if [[ ${executable_suffix} = "py" ]]; then
+        echo `python${py_version} ./${executable} $1 | tr -d '\r'`
+    elif [[ ${executable_suffix} = "jar" ]]; then
+        echo `java -jar ./${executable} $1 | tr -d '\r'`
+    else
+        echo `./${executable} $1 | tr -d '\r'`
+    fi
+}
 
 execute() {
     executable_suffix=`echo ${executable##*.}`
@@ -35,12 +48,12 @@ do
     if [[ ${line} != "" ]]; then
         line=`echo ${line} | tr -d '\r'`
         your_result=`execute ${i}${suffix}`
-        if [[ "$your_result" = "$line" ]]; then
+        if [[ "${your_result}" = "${line}" ]]; then
             echo "test ${i}${suffix} correct"
         else
             echo "test ${i}${suffix} wrong answer"
-        fi
     fi
-    
     i=$(( $i + 1 ))
+    fi
+
 done < ${result_file_name}
