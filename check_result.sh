@@ -18,31 +18,29 @@ fi
 suffix=".txt"
 executable=$1
 
+execute() {
+    executable_suffix=`echo ${executable##*.}`
+    if [[ ${executable} = "jar" ]]; then
+        echo `python ./${executable}`
+    elif [[ ${executable} = "py" ]]; then
+        echo `java -jar `
+    else
+        echo `./${executable} $1 | tr -d '\r'`
+    fi
+}
+
 i=0
 while read line || [[ -n ${line} ]]
 do
-    your_result=`./${executable} ${i}${suffix}`
-    your_result_array=(${your_result})
-    actual_result_array=(${line})
-    your_count=${#your_result_array[@]}
-    actual_count=${#actual_result_array[@]}
-    is_correct=1
-    if [[ ${your_count} -eq ${actual_count} ]]; then
-        for (( j = 0; j < ${#your_result_array}; ++j )); do
-            if [[ ${your_result_array[j]} != ${actual_result_array[j]} ]]; then
-                is_correct=0
-                break
-            fi
-        done
-        if [[ ${is_correct} -eq 1 ]]; then
+    if [[ ${line} != "" ]]; then
+        line=`echo ${line} | tr -d '\r'`
+        your_result=`execute ${i}${suffix}`
+        if [[ "$your_result" = "$line" ]]; then
             echo "test ${i}${suffix} correct"
         else
             echo "test ${i}${suffix} wrong answer"
         fi
-    else
-        echo "test ${i}${suffix} wrong answer"
     fi
+    
     i=$(( $i + 1 ))
 done < ${result_file_name}
-
-
