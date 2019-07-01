@@ -264,10 +264,116 @@ to
 init a a a a b b b c d a e f b e c d a c d a
 ```
 
+### 6.txt
+
+#### 输入
+
+```
+cr a 1
+cr b 1
+to
+cr c 1
+cr d 1
+to
+req R1 1
+to
+to
+req R2 2
+to
+de b
+req R3 1
+to
+```
+
+输出
+
+```
+init a a b b b a a c d d b a a a
+```
+
+### 7.txt
+
+#### 输入
+
+```
+cr z 1
+cr x 1
+cr c 1
+to
+req R3 3
+cr v 1
+to
+to
+req R3 1
+to
+req R1 1
+to
+req R1 1
+de x
+to
+```
+
+#### 输出
+
+```
+init z z z x x x c z v x x c v z z
+```
+
+### 8.txt
+
+#### 输入
+
+```
+cr a 1
+cr s 1
+to
+cr d 1
+req R2 2
+cr f 1
+to
+to
+req R2 1
+to
+de s
+to
+req R2 1
+```
+
+#### 输出
+
+```
+init a a s s s s a d f s a a a
+```
+
+### 9.txt
+
+#### 输入
+
+```
+cr x 1
+cr y 1
+req R2 2
+to
+cr z 1
+cr m 1
+req R1 1
+to
+req R2 2
+de x
+to
+```
+
+#### 输出
+
+```
+init x x x y y y y x z init init
+```
+
 ## 贡献
 
 - 0 实验指导书
 - 1、2 、5[万志文](https://github.com/JXhacker)
 - 3 [李逢君](https://github.com/543877815)
 - 4 黄晔熙
+- 6~9 [李若欣](https://github.com/Karenlrx)
 - shell [向尉](https://github.com/SwordAndTea)
