@@ -31,17 +31,6 @@ execute() {
     fi
 }
 
-execute() {
-    executable_suffix=`echo ${executable##*.}`
-    if [[ ${executable} = "jar" ]]; then
-        echo `python ./${executable}`
-    elif [[ ${executable} = "py" ]]; then
-        echo `java -jar `
-    else
-        echo `./${executable} $1 | tr -d '\r'`
-    fi
-}
-
 i=0
 while read line || [[ -n ${line} ]]
 do
