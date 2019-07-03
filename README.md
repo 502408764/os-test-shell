@@ -316,7 +316,7 @@ to
 #### 输出
 
 ```
-init z z z x x x c z v x x c v z z
+init z z z x x x c z v x x c v z c
 ```
 
 ### 8.txt
