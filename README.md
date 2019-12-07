@@ -25,6 +25,39 @@
 ./check_result.sh main.exe
 ```
 
+## 序列检查程序
+
+用于对比多个测试用例与输出的正确性，可以标记出错的位置
+
+如果可执行文件为.py文件，需要使用方式如下
+
+* Windows
+
+  ```powershell
+  D:>\result_check_windows.exe xxx.py python
+  ```
+
+* Linux
+
+  ```shell
+  linux@someone-linux~$./result_check_linux xxx.py python3
+  ```
+
+
+其他情况请直接传递可执行文件名（不带./）
+
+* Windows
+
+  ```powershell
+  D:>\result_check_windows.exe executable.exe
+  ```
+
+* Linux
+
+  ```shell
+  linux@someone-linux~$./result_check_linux file_name
+  ```
+
 ## 提问issue的正确方式
 
 1. 给出输入序列
