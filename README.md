@@ -10,6 +10,11 @@
 
 [https://github.com/543877815/os-visualization](https://github.com/543877815/os-visualization)
 
+> Notice:
+>
+> * 如果你只想看看你的程序是否通过全部示例，可以使用`check_result.sh`
+> * 如果你想查看你的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`和`result_check_linux`序列检查程序，它可以将你的输出与答案对比，高亮出不同的地方
+
 ## shell使用
 
 用于对比多个测试用例的正确性
@@ -39,7 +44,7 @@
 
 * Linux
 
-  ```shell
+  ```powershell
   linux@someone-linux~$./result_check_linux xxx.py python3
   ```
 
@@ -54,9 +59,11 @@
 
 * Linux
 
-  ```shell
+  ```powershell
   linux@someone-linux~$./result_check_linux file_name
   ```
+
+*源代码在根目录的source_code文件夹
 
 ## 提问issue的正确方式
 
@@ -64,6 +71,7 @@
 2. 给出期望输出和实际输出序列
 3. 指明哪一行输出有问题
 4. 简单地分析一下？
+5. 如果是可视化网站的问题或者要提PR，请@[李逢君](https://github.com/543877815)
 
 ## 输入建议
 
@@ -410,3 +418,4 @@ init x x x y y y y x z init init
 - 4 黄晔熙
 - 6~9 [李若欣](https://github.com/Karenlrx)
 - shell [向尉](https://github.com/SwordAndTea)
+- 序列检查 [许思博](https://github.com/joexu01)
