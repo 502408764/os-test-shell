@@ -10,53 +10,73 @@
 
 [https://github.com/543877815/os-visualization](https://github.com/543877815/os-visualization)
 
-## shell使用
-
-用于对比多个测试用例的正确性
-
-如果可执行文件为.py文件，需要使用方式如下
-```bash
-./check_result.sh xxx.py [-v 3]
-```
--v 参数表示使用的python版本，如果使用python3的话请传该参数，不传递该参数的话默认则使用系统指定的python版本
-
-其他的直接传递可执行文件名即可，例如
-```bash
-./check_result.sh main.exe
-```
-
 ## 序列检查程序
 
-用于对比多个测试用例与输出的正确性，可以标记出错的位置
+如果您想查看您的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`和`result_check_linux`序列检查程序，它可以将您的输出与答案对比，高亮出不同的地方：
 
-如果可执行文件为.py文件，需要使用方式如下
+* 序列检查程序会帮助您自动运行运行所有示例
+* 序列检查程序目前只支持运行`可执行程序`和`.py`文件
 
-* Windows
+**在Windows环境下，推荐使用Windows Terminal或其他现代化的终端，否则标记颜色不会被正常显示*
 
-  ```powershell
-  D:>\result_check_windows.exe xxx.py python
-  ```
+### 如果您的实验文件是可执行文件
 
-* Linux
+使用方式如下：
 
-  ```shell
-  linux@someone-linux~$./result_check_linux xxx.py python3
-  ```
+①将您已经编译好的实验文件放在本仓库的根目录下
 
-
-其他情况请直接传递可执行文件名（不带./）
+②打开终端，`cd`进入该仓库文件夹，注意第一个参数是您的可执行文件名（请直接传递可执行文件名，不带`./`）
 
 * Windows
 
   ```powershell
-  D:>\result_check_windows.exe executable.exe
+  D:>\os_test_shell\result_check_windows.exe your_file_name.exe
   ```
 
 * Linux
 
-  ```shell
-  linux@someone-linux~$./result_check_linux file_name
+  ```powershell
+  linux@someone-linux~$./os-test-shell/result_check_linux your_file_name
   ```
+
+### 如果您的实验文件为.py文件
+
+使用方式如下：
+
+①将您的实验文件放在本仓库的根目录下
+
+②打开终端，`cd`进入该仓库文件夹，注意第一个参数是您的`.py`文件名（请直接传递可执行文件名，不带`./`），第二个参数根据不同的系统，需要输入不同的参数
+
+* Windows
+
+  ```powershell
+  D:>\os_test_shell\result_check_windows.exe xxx.py python
+  ```
+
+* Linux
+
+  ```powershell
+  # 如果您使用python3编写，请执行下面这条命令
+  linux@someone-pc~$./os-test-shell/result_check_linux xxx.py python3
+  # 如果您使用python2编写，请执行下面这条命令
+  linux@someone-pc~$./os-test-shell/result_check_linux xxx.py python2
+  ```
+
+*源代码在根目录的source_code文件夹
+
+* 如果您的程序运行通过一个测试，终端上会显示：
+
+  ![correct](https://raw.githubusercontent.com/joexu01/joexu01.github.io/master/result_correct.png)
+
+* 如果您的程序运行没有通过测试，终端上会将错误的输出标记：
+
+  ![incorrect](https://raw.githubusercontent.com/joexu01/joexu01.github.io/master/incorrect_answer.png)
+
+* 如果您的程序通过了全部测试，终端上会显示：
+
+  ![full](https://raw.githubusercontent.com/joexu01/joexu01.github.io/master/full.png)
+
+* 请注意，序号下方第一行是您的程序的输出，第二行是预期的正确输出，所有超过正确输出长度的输出都会被忽略掉
 
 ## 提问issue的正确方式
 
@@ -64,12 +84,15 @@
 2. 给出期望输出和实际输出序列
 3. 指明哪一行输出有问题
 4. 简单地分析一下？
+5. 如果是可视化网站的问题或者要提PR，请@[李逢君](https://github.com/543877815)
+6. 如果是序列检查程序的问题，请@[许思博](https://github.com/joexu01)
+7. 欢迎fork
 
-## 输入建议
+## 实验文件的参数接收
 
-将测试用例作命令行运行的参数传递，如生成的main.exe
+推荐您将测试用例作命令行运行的参数传递，如，您的实验文件为main.exe，您应该将测试用例的文件名作为第一个参数输入命令行
 
-```bash
+```powershell
 ./main.exe test_shell.txt
 ```
 
@@ -410,3 +433,4 @@ init x x x y y y y x z init init
 - 4 黄晔熙
 - 6~9 [李若欣](https://github.com/Karenlrx)
 - shell [向尉](https://github.com/SwordAndTea)
+- 序列检查 [许思博](https://github.com/joexu01)
