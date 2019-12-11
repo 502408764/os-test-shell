@@ -10,16 +10,44 @@
 
 [https://github.com/543877815/os-visualization](https://github.com/543877815/os-visualization)
 
+## 提问issue的正确方式
+
+1. 给出输入序列
+2. 给出期望输出和实际输出序列
+3. 指明哪一行输出有问题
+4. 简单地分析一下？
+5. 如果是可视化网站的问题或者要提PR，请@[李逢君](https://github.com/543877815)
+6. 如果是序列检查程序的问题，请@[许思博](https://github.com/joexu01)
+
+## 输入建议
+
+将测试用例`txt`文件作参数传递，这样有助于快速输入与对比。
+
+```powershell
+./[exec-filename].exe [test_shell].txt
+```
+
+## 输出建议
+
+不要换行！
+
+不要换行！
+
+不要换行！
+
+请严格按照实验指导书的样式。
+
 ## 序列检查程序
 
 如果您想查看您的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`和`result_check_linux`序列检查程序，它可以将您的输出与答案对比，高亮出不同的地方：
 
 * 序列检查程序会帮助您自动运行运行所有示例
 * 序列检查程序目前只支持运行`可执行程序`和`.py`文件
+* 序列检查程序源代码在根目录的[source_code](https://github.com/502408764/os-test-shell/tree/master/source_code)文件夹，通过go语言进行编写
 
 **在Windows环境下，推荐使用Windows Terminal或其他现代化的终端，否则标记颜色不会被正常显示*
 
-### 如果您的实验文件是可执行文件
+### 可执行文件
 
 使用方式如下：
 
@@ -30,16 +58,16 @@
 * Windows
 
   ```powershell
-  D:>\os_test_shell\result_check_windows.exe your_file_name.exe
+  D:>\os_test_shell\result_check_windows.exe [exec-filename].exe
   ```
 
 * Linux
 
   ```powershell
-  linux@someone-linux~$./os-test-shell/result_check_linux your_file_name
+  linux@someone-linux~$./os-test-shell/result_check_linux [exec-filename]
   ```
 
-### 如果您的实验文件为.py文件
+### Python
 
 使用方式如下：
 
@@ -50,19 +78,16 @@
 * Windows
 
   ```powershell
-  D:>\os_test_shell\result_check_windows.exe xxx.py python
+  D:>\os_test_shell\result_check_windows.exe [filename].py python
   ```
 
 * Linux
 
   ```powershell
-  # 如果您使用python3编写，请执行下面这条命令
-  linux@someone-pc~$./os-test-shell/result_check_linux xxx.py python3
-  # 如果您使用python2编写，请执行下面这条命令
-  linux@someone-pc~$./os-test-shell/result_check_linux xxx.py python2
+  linux@someone-pc~$./os-test-shell/result_check_linux [filename].py [python3|python2]
   ```
 
-*源代码在根目录的source_code文件夹
+### Example
 
 * 如果您的程序运行通过一个测试，终端上会显示：
 
@@ -77,34 +102,6 @@
   ![full](https://raw.githubusercontent.com/joexu01/joexu01.github.io/master/full.png)
 
 * 请注意，序号下方第一行是您的程序的输出，第二行是预期的正确输出，所有超过正确输出长度的输出都会被忽略掉
-
-## 提问issue的正确方式
-
-1. 给出输入序列
-2. 给出期望输出和实际输出序列
-3. 指明哪一行输出有问题
-4. 简单地分析一下？
-5. 如果是可视化网站的问题或者要提PR，请@[李逢君](https://github.com/543877815)
-6. 如果是序列检查程序的问题，请@[许思博](https://github.com/joexu01)
-7. 欢迎fork
-
-## 实验文件的参数接收
-
-推荐您将测试用例作命令行运行的参数传递，如，您的实验文件为main.exe，您应该将测试用例的文件名作为第一个参数输入命令行
-
-```powershell
-./main.exe test_shell.txt
-```
-
-## 输出建议
-
-不要换行！
-
-不要换行！
-
-不要换行！
-
-严格按照实验指导书的样式
 
 ## 具体用例
 
