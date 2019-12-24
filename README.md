@@ -37,15 +37,16 @@
 
 请严格按照实验指导书的样式。
 
-## 序列检查程序
+## 序列检查工具
 
-如果您想查看您的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`和`result_check_linux`序列检查程序，它可以将您的输出与答案对比，高亮出不同的地方：
+如果您想查看您的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`和`result_check_linux`序列检查工具，它可以将您的输出与答案对比，高亮出不同的地方：
 
-* 序列检查程序会帮助您自动运行运行所有示例
-* 序列检查程序目前只支持运行`可执行程序`和`.py`文件
-* 序列检查程序源代码在根目录的[source_code](https://github.com/502408764/os-test-shell/tree/master/source_code)文件夹，通过go语言进行编写
+* 序列检查工具会帮助您自动运行运行所有示例
+* 序列检查工具目前支持运行`可执行程序`、`.class`文件（java）和`.py`文件
+* 序列检查工具源代码在根目录的[source_code](https://github.com/502408764/os-test-shell/tree/master/source_code)文件夹，通过go语言进行编写
+* 在Linux环境下，您可能需要先执行`chmod +x ./result_check_linux `
 
-**在Windows环境下，推荐使用Windows Terminal或其他现代化的终端，否则标记颜色不会被正常显示*
+**序列检查工具现已支持所有主流shell/终端的结果高亮显示（包括但不限于CMD、Bash、Windows Terminal、PowerShell和Cmder，不支持Git-Bash）*
 
 ### 可执行文件
 
@@ -87,9 +88,25 @@
   linux@someone-pc~$./os-test-shell/result_check_linux [filename].py [python3|python2]
   ```
 
+### Java（仅限Windows）
+
+使用方式如下：
+
+①将您的实验项目通过`javac`命令编译为`.class`文件
+
+②将您的`.class`文件放在本仓库的根目录下
+
+③打开终端，`cd`进入该仓库文件夹，注意第一个参数是您的`.class`文件名（请直接传递文件名，不带`./`，**并且不带文件类型后缀**），第二个参数是`java`
+
+* Windows
+
+  ```powershell
+  D:>\os_test_shell\result_check_windows.exe [.class filename] java
+  ```
+
 ### Example
 
-* 如果您的程序运行通过一个测试，终端上会显示：
+* 如果您的程序运行通过测试，终端上会显示：
 
   ![correct](https://raw.githubusercontent.com/joexu01/joexu01.github.io/master/result_correct.png)
 
