@@ -39,7 +39,7 @@
 
 ## 序列检查工具
 
-如果您想查看您的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`和`result_check_linux`序列检查工具，它可以将您的输出与答案对比，高亮出不同的地方：
+如果您想查看您的程序的输出结果与正确结果不同的地方，可以使用`result_check_windows.exe`、`result_check_linux`和`result_check_darwin`序列检查工具，它可以将您的输出与答案对比，高亮出不同的地方：
 
 * 序列检查工具会帮助您自动运行运行所有示例
 * 序列检查工具目前支持运行`可执行程序`、`.class`文件（java）和`.py`文件
@@ -65,7 +65,13 @@
 * Linux
 
   ```powershell
-  linux@someone-linux~$./os-test-shell/result_check_linux [exec-filename]
+  someone@someone-linux~$./os-test-shell/result_check_linux [exec-filename]
+  ```
+
+* macOS
+
+  ```powershell
+  someone@someone-mbp~$./os-test-shell/result_check_darwin [exec-filename]
   ```
 
 ### Python
@@ -85,10 +91,16 @@
 * Linux
 
   ```powershell
-  linux@someone-pc~$./os-test-shell/result_check_linux [filename].py [python3|python2]
+  someone@someone-linux~$./os-test-shell/result_check_linux [filename].py [python3|python2]
   ```
 
-### Java（仅限Windows）
+* macOS
+
+  ```powershell
+  someone@someone-mbp~$./os-test-shell/result_check_darwin [filename].py [python3|python2]
+  ```
+
+### Java
 
 使用方式如下：
 
@@ -101,7 +113,19 @@
 * Windows
 
   ```powershell
-  D:>\os_test_shell\result_check_windows.exe [.class filename] java
+  D:>\os_test_shell\result_check_windows.exe [.class filename(without suffix)] java
+  ```
+
+* Linux
+
+  ```powershell
+  someone@someone-linux~$./os-test-shell/result_check_linux [.class filename(without suffix)] java
+  ```
+
+* macOS
+
+  ```powershell
+  someone@someone-mbp~$./os-test-shell/result_check_darwin [.class filename(without suffix)] java
   ```
 
 ### Example
@@ -118,7 +142,6 @@
 
   ![full](https://raw.githubusercontent.com/joexu01/joexu01.github.io/master/full.png)
 
-* 请注意，序号下方第一行是您的程序的输出，第二行是预期的正确输出，所有超过正确输出长度的输出都会被忽略掉
 
 ## 具体用例
 
